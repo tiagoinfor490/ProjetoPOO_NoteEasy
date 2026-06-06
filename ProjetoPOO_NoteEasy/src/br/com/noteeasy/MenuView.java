@@ -11,6 +11,8 @@ import javax.swing.JMenuItem;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MenuView extends JFrame {
 
@@ -49,23 +51,39 @@ public class MenuView extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Novo ");
-		mnNewMenu.add(mntmNewMenuItem);
-		
-		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Abrir Notas");
-		mnNewMenu.add(mntmNewMenuItem_1);
-		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Salvar");
-		mnNewMenu.add(mntmNewMenuItem_2);
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// 1. Cria a instância da Terceira Interface (o editor de texto)
+				AcaoView telaEditor = new AcaoView();
+
+				// 2. Torna a tela do editor visível para o usuário
+				telaEditor.setVisible(true);
+			}
+		});
+		mnNewMenu.add(mntmNewMenuItem); 
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Sair");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem_3);
 		
 		JMenu mnNewMenu_1 = new JMenu("Formatar");
 		menuBar.add(mnNewMenu_1);
 		
-		JMenu mnNewMenu_2 = new JMenu("Conta");
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Mudar tema(Escuro/Claro)");
+		mnNewMenu_1.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Mudar fonte");
+		mnNewMenu_1.add(mntmNewMenuItem_2);
+		
+		JMenu mnNewMenu_2 = new JMenu("Ajuda");
 		menuBar.add(mnNewMenu_2);
+		
+		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Sobre o NoteEasy");
+		mnNewMenu_2.add(mntmNewMenuItem_4);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
