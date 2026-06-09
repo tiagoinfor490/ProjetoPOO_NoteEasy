@@ -12,7 +12,8 @@ import javax.swing.JLabel; // Rótulo de texto fixo na tela (labels)
 import javax.swing.JPanel; // Painel/Contentor onde colamos os componentes dentro da janela
 import javax.swing.JPasswordField; // Caixa de texto especial que esconde os caracteres da senha
 import javax.swing.JTextField; // Caixa de texto comum de uma linha para digitação
-import javax.swing.border.EmptyBorder; // Cria uma borda invisível de espaçamento ao redor do painel
+import javax.swing.border.EmptyBorder;
+import java.awt.Color; // Cria uma borda invisível de espaçamento ao redor do painel
 
 // A classe TelaLogin herda (extends) de JFrame, ou seja, ela É uma janela do Windows
 public class TelaLogin extends JFrame {
@@ -54,6 +55,7 @@ public class TelaLogin extends JFrame {
 		
 		// Inicializa o painel onde os elementos serão colados
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5)); // Define margens de 5 pixels nas bordas
 		setContentPane(contentPane); // Define este painel como o principal da janela
 		
@@ -104,7 +106,7 @@ public class TelaLogin extends JFrame {
 				String senha = new String(passwordField.getPassword());
 
 				// 3. Validação das Credenciais (Compara se o login é "admin" e a senha é "1234")
-				if (usuario.equals("admin") && senha.equals("1111")) {
+				if (usuario.equals("admin") && senha.equals("1234")) {
 				    
 				    dispose(); // Fecha e destrói a tela de login atual para libertar memória
 				    
